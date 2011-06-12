@@ -1,0 +1,8 @@
+%html
+  %title Facebook test user
+  %h1 Facebook test user
+  %ul
+  - @json['data'].each do |line|
+    %li
+      %a{ :href => line['login_url'] }
+        = line['id']
