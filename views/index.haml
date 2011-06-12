@@ -1,8 +1,22 @@
-%html
-  %title Facebook test user
-  %h1 Facebook test user
-  %ul
-  - @json['data'].each do |line|
+%form{:method => "POST", :action => '/user'}
+  %input{:type => "hidden", :name => "_method", :value => "PUT"}
+  %input{:type => "submit", :value => "Create" }
+
+%ul
+  - @users.each do |user|
     %li
-      %a{ :href => line['login_url'] }
-        = line['id']
+      %a{ :href => user.login_url }
+        = user.id
+
+      %form{:method => "POST", :action => '/user/'}
+        %input{:type => "hidden", :name => "_method", :value => "delete"}
+        %input{:type => "hidden", :name => "id", :value => "#{user.id}"}
+
+        - if user.email
+          %label Email:
+          = user.email
+        - if user.password
+          %label | Password:
+          = user.password
+
+        %input{:type => "submit", :value => "DELETE"}

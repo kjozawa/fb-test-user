@@ -1,0 +1,19 @@
+!!! XML
+!!! Strict
+
+%html
+  %head
+    %title Facebook test user
+    %link{ :href => "/style.css", :rel => "stylesheet", :type => "text/css", :media => "screen" }
+
+  %body
+    - if flash.has?(:error)
+      %div.error= flash[:error]
+    - if flash.has?(:warning)
+      %div.warning= flash[:warning]
+    - if flash.has?(:notice)
+      %div.notice= flash[:notice]
+    %h1 Facebook test user
+
+    #content
+      != yield
