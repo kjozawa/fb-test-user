@@ -1,0 +1,14 @@
+create config.yml
+app1:
+  app_id: your app1 app id
+  app_secret: your app1 app secret
+
+app2:
+  app_id: your app2 app id
+  app_secret: your app2 app secret
+
+show app1 test user
+  ruby app.rb app1
+show app2 test user
+  ruby app.rb app2
+
